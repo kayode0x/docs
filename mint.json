@@ -1,82 +1,134 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
-    "background": {
-      "dark": "#090014"
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "Linkvite",
+    "logo": {
+        "dark": "/logo/dark.svg",
+        "light": "/logo/light.svg"
     },
-    "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+    "favicon": "/favicon.png",
+    "colors": {
+        "primary": "#FA5A5F",
+        "light": "#FF6D6D",
+        "dark": "#0D001D",
+        "background": {
+            "dark": "#090014"
+        },
+        "anchors": {
+            "from": "#FF7F57",
+            "to": "#9563FF"
+        }
+    },
+    "topbarLinks": [
+        {
+            "name": "Support",
+            "url": "mailto:contact@linkvite.io"
+        }
+    ],
+    "topbarCtaButton": {
+        "name": "App",
+        "url": "https://app.linkvite.io"
+    },
+    "tabs": [
+        {
+            "name": "API Reference",
+            "url": "api-reference"
+        },
+        {
+            "name": "Changelog",
+            "url": "changelog"
+        },
+        {
+            "name": "CLI",
+            "url": "cli"
+        },
+        {
+            "name": "Legal",
+            "url": "legal"
+        }
+    ],
+    "anchors": [
+        {
+            "name": "Github",
+            "icon": "github",
+            "url": "https://github.com/linkvite"
+        },
+        {
+            "name": "Community",
+            "icon": "discord",
+            "url": "https://discord.gg/4sJ65cpenK"
+        }
+    ],
+    "navigation": [
+        {
+            "group": "Get Started",
+            "pages": [
+                "introduction",
+                "guides/basics",
+                "guides/import",
+                "guides/settings"
+            ]
+        },
+        {
+            "group": "Integrations",
+            "pages": [
+                "integrations/apps",
+                "integrations/third-party",
+                "integrations/advanced"
+            ]
+        },
+        {
+            "group": "Help Center",
+            "pages": [
+                "help/faq",
+                "help/support",
+                "help/feedback",
+                "help/bug"
+            ]
+        },
+        {
+            "group": "API Documentation",
+            "pages": [
+                "api-reference/authentication"
+            ]
+        },
+        {
+            "group": "Endpoint Examples",
+            "pages": [
+                "api-reference/endpoint/get",
+                "api-reference/endpoint/create",
+                "api-reference/endpoint/update",
+                "api-reference/endpoint/delete"
+            ]
+        },
+        {
+            "group": "Changelog",
+            "pages": [
+                "changelog/api",
+                "changelog/sdks",
+                "changelog/platform"
+            ]
+        },
+        {
+            "group": "Command Line",
+            "pages": [
+                "cli/get-started",
+                "cli/reference",
+                "cli/help",
+                "cli/updates"
+            ]
+        },
+        {
+            "group": "Legal",
+            "pages": [
+                "legal/privacy",
+                "legal/terms",
+                "legal/copyright"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "twitter": "https://twitter.com/tryLinkvite",
+        "github": "https://github.com/linkvite",
+        "discord": "https://discord.gg/4sJ65cpenK"
     }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
 }

@@ -56,13 +56,50 @@ The contents of the user group
 
 <RequestExample>
 
-```bash Example Request
+```bash cURL
 curl --location --request POST 'https://api.mintlify.com/api/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
     "current_token": ""
 }'
+```
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "strings"
+    "net/http"
+    "io/ioutil"
+)
+
+func main() {
+
+    url := "https://api.mintlify.com/api/user"
+    method := "POST"
+
+    payload := strings.NewReader(`{
+    "current_token": ""
+}`)
+
+    client := &http.Client {
+    }
+    req, err := http.NewRequest(method, url, payload)
+
+    if err != nil {
+        fmt.Println(err)
+    }
+    req.Header.Add("Content-Type", "application/json")
+    req.Header.Add("Authorization", "Token <token>")
+
+    res, err := client.Do(req)
+    defer res.Body.Close()
+    body, err := ioutil.ReadAll(res.Body)
+
+    fmt.Println(string(body))
+}
 ```
 
 </RequestExample>

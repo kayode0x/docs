@@ -1,66 +1,79 @@
 ---
 title: "Get User"
-api: "GET https://api.mintlify.com/api/user"
-description: "This endpoint gets or creates a new user."
+api: "GET https://api.linkvite.io/v1/user"
+description: "This endpoint gets a user."
 ---
-
-### Body
-
-<ParamField body="name" type="string">
-  This is the name of the user group.
-</ParamField>
-
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
-</ParamField>
-
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user group should be
-  associated with or id of the datasource you provided when creating it.
-</ParamField>
-
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will be accessible through
-  variables in the dashboards and SQL editor
-</ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="ok" type="boolean">
+  Indicates whether the call was successful. true indicates success, false indicates failure.
 </ResponseField>
 
-<ResponseField name="new_user_group" type="boolean">
-  Indicates whether a new user group was created.
+<ResponseField name="message" type="string">
+  A message indicating the result of the call.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
+<ResponseField name="data" type="object (optional)">
 
-The contents of the user group
+The user object, if the call was successful. If the call was unsuccessful, this field will not be present.
 
 <Expandable title="Toggle object">
 
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this information, since
-  you will not need to use it.
-</ResponseField>
-
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be used to identify
-  which user group is viewing the dashboard. You should save this on your end to use when rendering
-  an embedded dashboard.
+<ResponseField name="id" type="string">
+  This is the user id (user_id or USER_ID) that will be used to identify which user is viewing the dashboard.
 </ResponseField>
 
 <ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
+    This is the user's name.
 </ResponseField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
+<ResponseField name="email" type="string">
+    This is the user's email.
 </ResponseField>
 
-<ResponseField name="properties" type="JSON or null">
-  This is the properties object if it was provided in the request body
+<ResponseField name="username" type="string">
+    This is the user's username.
+</ResponseField>
+
+<ResponseField name="avatar" type="string">
+    This is a URL that points to the user's avatar.
+</ResponseField>
+
+<ResponseField name="emailVerified" type="boolean">
+    True indicates that the user's email has been verified, false indicates that the user's email has not been verified.
+</ResponseField>
+
+<ResponseField name="accountType" type="string">
+    This is the user's account type. The account type can be free, pro, or enterprise.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+    This is the user's status. The status can be active, inactive, or suspended.
+</ResponseField>
+
+<ResponseField name="verified" type="boolean">
+    This is an internal field that indicates whether the user has been verified. You don't need to worry about this field.
+</ResponseField>
+
+<ResponseField name="folderName" type="string">
+    This is the user's folder name. It's the page title for /folder, and can be edited by the user.
+</ResponseField>
+
+<ResponseField name="privateAccount" type="boolean">
+    True indicates that the user's account is private, false indicates that the user's account is public.
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+    This is the date and time that the user was created. It's in ISO 8601 format. (YYYY-MM-DDTHH:mm:ss.sssZ)
+</ResponseField>
+
+<ResponseField name="updatedAt" type="string">
+    This is the date and time that the user was last updated. It's in ISO 8601 format. (YYYY-MM-DDTHH:mm:ss.sssZ)
+</ResponseField>
+
+<ResponseField name="lastLogin" type="string">
+    This is the date and time that the user last logged in. It's in ISO 8601 format. (YYYY-MM-DDTHH:mm:ss.sssZ)
 </ResponseField>
 
 </Expandable>
@@ -70,31 +83,42 @@ The contents of the user group
 <RequestExample>
 
 ```bash Example Request
-curl --location --request GET 'https://api.mintlify.com/api/user' \
+curl --location --request GET 'https://api.linkvite.io/v1/user' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
---data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
-}'
+--header 'Authorization: Bearer <token>' \
 ```
 
 </RequestExample>
 
 <ResponseExample>
 
-```json Response
+```json Success Response
 {
-  "success": 1,
-  "new_user_group": true,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
+  "ok": true,
+  "message": "USER_FOUND",
+  "data": {
+    "id": "<user_id>",
     "name": "Example 1",
-    "provided_id": "example_1"
+    "username": "example_1",
+    "email": "user@example.com",
+    "avatar": "<avatar_url>",
+    "emailVerified": true,
+    "accountType": "free" // ["pro", "enterprise"],
+    "status": "active",
+    "verified": false,
+    "folderName": "My Stuffs 🗂️",
+    "privateAccount": false,
+    "createdAt": "2021-08-02T00:59:45.704Z",
+    "updatedAt": "2023-10-17T02:33:46.787193889Z",
+    "lastLogin": "2023-10-17T02:33:46.787193681Z"
   }
+}
+```
+
+```json Error Response
+{
+  "ok": false,
+  "message": "USER_NOT_FOUND",
 }
 ```
 

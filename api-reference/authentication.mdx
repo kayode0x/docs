@@ -1,13 +1,32 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "How to authenticate with Linkvite's public API"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+You can authenticate with the Linkvite API by providing an API Key or an Access Token. You can manage your API Keys in the [developers dashboard](https://app.linkvite.com/developers).
 
-```bash
-'Authorization': 'Token <team_token>'
-```
+- **API Keys**: Used to authenticate requests made to all public endpoint on behalf of a user.
+- **Access Tokens**: They are tokens with scoped CRUD access, and short-lived. They expire after 15 minutes.
+
+<Note>
+    You can refresh an access token by providing a valid refresh token to the `/auth/refresh` endpoint.
+</Note>
+
+<Tabs>
+  <Tab title="Access Token">
+    You can authenticate with the Linkvite API by providing an Access Token in the `Authorization` header. Here's an example:
+
+    ```bash
+    'Authorization': 'Bearer <access_token>'
+    ```
+  </Tab>
+
+
+  <Tab title="API Key">
+
+  </Tab>
+</Tabs>
+
 
 ## API Tokens
 
