@@ -5,7 +5,7 @@
         "dark": "/logo/dark.svg",
         "light": "/logo/light.svg"
     },
-    "favicon": "/favicon.png",
+    "favicon": "./images/favicon.png",
     "colors": {
         "primary": "#FA5A5F",
         "light": "#FF6D6D",
@@ -34,14 +34,6 @@
             "url": "api-reference"
         },
         {
-            "name": "Changelog",
-            "url": "changelog"
-        },
-        {
-            "name": "CLI",
-            "url": "cli"
-        },
-        {
             "name": "Legal",
             "url": "legal"
         }
@@ -56,6 +48,11 @@
             "name": "Community",
             "icon": "discord",
             "url": "https://discord.gg/4sJ65cpenK"
+        },
+        {
+            "name": "X",
+            "icon": "x",
+            "url": "https://x.com/tryLinkvite"
         }
     ],
     "navigation": [
@@ -88,33 +85,20 @@
         {
             "group": "API Documentation",
             "pages": [
-                "api-reference/authentication"
+                "api-reference/authentication",
+                "api-reference/errors"
             ]
         },
         {
-            "group": "Endpoint Examples",
+            "group": "Endpoints",
             "pages": [
-                "api-reference/endpoint/get",
-                "api-reference/endpoint/create",
-                "api-reference/endpoint/update",
-                "api-reference/endpoint/delete"
-            ]
-        },
-        {
-            "group": "Changelog",
-            "pages": [
-                "changelog/api",
-                "changelog/sdks",
-                "changelog/platform"
-            ]
-        },
-        {
-            "group": "Command Line",
-            "pages": [
-                "cli/get-started",
-                "cli/reference",
-                "cli/help",
-                "cli/updates"
+                {
+                    "group": "Bookmark",
+                    "pages": [
+                        "api-reference/bookmarks/create",
+                        "api-reference/bookmarks/update"
+                    ]
+                }
             ]
         },
         {
@@ -127,7 +111,7 @@
         }
     ],
     "footerSocials": {
-        "twitter": "https://twitter.com/tryLinkvite",
+        "x": "https://x.com/tryLinkvite",
         "github": "https://github.com/linkvite",
         "discord": "https://discord.gg/4sJ65cpenK"
     }
